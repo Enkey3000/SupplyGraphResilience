@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supplygraph-resilience"
+version = "0.1.0"
+description = "A synthetic graph-neural-network prototype for supply disruption exposure."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "SupplyGraph Resilience contributors" }]
+dependencies = ["numpy>=1.26,<3", "scikit-learn>=1.5,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0,<9", "ruff>=0.8,<1"]
+
+[project.scripts]
+supplygraph = "supplygraph.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
